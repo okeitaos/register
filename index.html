@@ -274,6 +274,10 @@
                     <label for="phone">เบอร์โทรศัพท์</label>
                     <input type="tel" id="phone" class="form-input" maxlength="10" pattern="[0-9]{10}" inputmode="numeric" placeholder="0812345678" required>
                 </div>
+                 <div class="form-group">
+                    <label for="address">ที่อยู่</label>
+                    <input type="text" id="address" class="form-input" required>
+                </div>
                 <div class="form-group">
                     <label for="imageUpload">อัปโหลดรูปภาพ (สูงสุด 5 รูป)</label>
                     <label for="imageUpload" class="file-input-wrapper">
@@ -483,6 +487,7 @@ async function sendTelegramNotification_ClientSide(formData, imageUrls) {
 <b>ชื่อ-สกุล:</b> ${formData.title} ${formData.first_name} ${formData.last_name}
 <b>อีเมล:</b> ${formData.email || "ไม่ได้กรอก"}
 <b>เบอร์โทร:</b> ${formData.phone || "ไม่ได้กรอก"}
+<b>ที่อยู่:</b> ${formData.address || "ไม่ได้กรอก"}
 <b>จำนวนรูป:</b> ${imageUrls.length} รูป
 
 <a href="${imageUrls[0] || ' '}">ดูรูปภาพแรกที่อัปโหลด</a>
@@ -536,6 +541,7 @@ async function sendTelegramNotification_ClientSide(formData, imageUrls) {
                     last_name: document.getElementById('last_name').value,
                     email: document.getElementById('email').value,
                     phone: document.getElementById('phone').value,
+                    address: document.getElementById('address').value,
                     uploaded_image_urls: imageUrls
                 };
 
