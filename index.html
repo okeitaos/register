@@ -278,6 +278,13 @@
                     <label for="address">ที่อยู่</label>
                     <input type="text" id="address" class="form-input" required>
                 </div>
+                 <div class="form-group">
+                        <label for="type">ประเภทการแข่งขัน</label>
+                        <select id="type" class="form-select" required>
+                            <option value="นาย">TOP100MEN</option>
+                            <option value="นาง">TOP100WOMEN</option>
+                        </select>
+                    </div>
                 <div class="form-group">
                     <label for="imageUpload">อัปโหลดรูปภาพ (สูงสุด 5 รูป)</label>
                     <label for="imageUpload" class="file-input-wrapper">
@@ -488,6 +495,7 @@ async function sendTelegramNotification_ClientSide(formData, imageUrls) {
 <b>อีเมล:</b> ${formData.email || "ไม่ได้กรอก"}
 <b>เบอร์โทร:</b> ${formData.phone || "ไม่ได้กรอก"}
 <b>ที่อยู่:</b> ${formData.address || "ไม่ได้กรอก"}
+<b>ที่อยู่:</b> ${formData.type || "ไม่ได้กรอก"}
 <b>จำนวนรูป:</b> ${imageUrls.length} รูป
 
 <a href="${imageUrls[0] || ' '}">ดูรูปภาพแรกที่อัปโหลด</a>
@@ -542,6 +550,7 @@ async function sendTelegramNotification_ClientSide(formData, imageUrls) {
                     email: document.getElementById('email').value,
                     phone: document.getElementById('phone').value,
                     address: document.getElementById('address').value,
+                    type: document.getElementById('type').value,
                     uploaded_image_urls: imageUrls
                 };
 
